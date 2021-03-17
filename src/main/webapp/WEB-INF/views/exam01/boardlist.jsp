@@ -1,7 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<%@ page import="java.util.*" %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="<%= request.getContextPath()%>"></c:set>  
 <c:set var="resources" value="${contextPath}/resources"></c:set>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,8 +31,23 @@
           <div class="col-md-9 p-3">
             <div class=" h-100 d-flex flex-column">
               <div class="flex-grow-1 overflow-auto pr-3" style="height:0px">
-              메뉴를 클릭하면 해당 내용이 나옵니다.
-              요청 -> DispatcherServlet -> Exam01Controller -> home.jsp
+                <table class="table">
+	<tr>
+		<th>번호</th>
+		<th>제목</th>
+		<th>내용</th>
+		<th>글쓴이</th>
+	</tr>
+	<c:forEach var="board" items="${list}">
+		<tr>
+			<td>${board.getBno()}</td>
+			<td>${board.getBtitle()}</td>
+			<td>${board.getBcontent()}</td>
+			<td>${board.getBwriter()}</td>
+		</tr>
+	</c:forEach>
+		
+	</table>
                 <%-- 메뉴 내용 부분 --%>
               </div>
             </div>
@@ -36,5 +55,8 @@
         </div>
       </div>
     </div>
+  
+    
   </body>
 </html>
+
