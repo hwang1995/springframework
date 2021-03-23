@@ -5,15 +5,22 @@
 <c:set var="resources" value="${contextPath}/resources"></c:set>
 
 <jsp:include page="/WEB-INF/views/common/header.jsp" />
+<div class="content">
+	<c:if test="${connStatus == '성공'}">
+		<div class="alert alert-success">
+		DB 연결 성공
+		</div>
+		
+	</c:if>
+	<c:if test="${connStatus == '실패'}">
+		<div class="alert alert-danger">
+		DB 연결 실패
+		</div>
+	</c:if>
+	 <br />
+1. <a href="boards">게시물 목록</a>
+</div>
 
-method1form.jsp
-<hr />
-<form method="post" action="method1">
-	<div class="form-group">
-		<label for="name">이름</label> <input id="name" type="text" name="name"
-			class="form-control" />
 
-	</div>
-	<input type="submit" value="전송" class="mt-2" />
-</form>
+
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />

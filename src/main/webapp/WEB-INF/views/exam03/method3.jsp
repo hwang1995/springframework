@@ -5,15 +5,19 @@
 <c:set var="resources" value="${contextPath}/resources"></c:set>
 
 <jsp:include page="/WEB-INF/views/common/header.jsp" />
+<div class="content">
 
-method1form.jsp
-<hr />
-<form method="post" action="method1">
-	<div class="form-group">
-		<label for="name">이름</label> <input id="name" type="text" name="name"
-			class="form-control" />
+UID : ${user.uid} <br />
+UNAME : ${user.uname } <br />
+UPASSWORD : ${user.upassword} <br />
+UHOBBY :
+<c:forEach var="hobby" items="${user.uhobby}">
+${hobby }, &nbsp;
+</c:forEach>
+ <br />
+UJOB : ${user.ujob} <br />
+</div>
 
-	</div>
-	<input type="submit" value="전송" class="mt-2" />
-</form>
+
+
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />
